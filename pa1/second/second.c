@@ -1,25 +1,40 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/*typedef struct Node
+typedef struct node
 {
 	int data;
-	struct Node* next;
-};
+	struct node* next;
+}Node;
 
-void push(Node** head, int* data)
+/*void push(Node** head, int* data)
 {
 
 }*/
 int main(int argc, char** argv)
 {
 	FILE* f = fopen(argv[1],"r");
-	//Node* head = NULL;
+	Node* head = NULL;
 	char action;
 	char line[256];
-	int c = 0;
+	char lines;
+	int c = 1;
 	int val;
-	int sortArr[10];//Add elements inserted into array, then sort elements, need to malloc array for size, use sort from first, binary search for delete?
+	char* name = "node";
+	if(f != NULL)
+	{
+		for(lines = getc(f); c != EOF; c = getc(f))
+			if (lines == '\n')
+			{	
+				c++;
+				name == "node" + (char) c;
+				Node* (char*) name = NULL;
+			}
+
+	}
+	fclose(f);
+	f = fopen(argv[1], "r");
+	c = 0;
 	if (f != NULL)
 	{
 		fscanf(f,"%c %d", &action, &val);
@@ -27,6 +42,11 @@ int main(int argc, char** argv)
 		{
 			if(action=='i')
 			{
+				if(c == 0)
+				{
+					head->data = val;
+					head->next = NULL;
+				}
 				printf("%c\t", action);
 				printf("%d\n", val);
 				c++;

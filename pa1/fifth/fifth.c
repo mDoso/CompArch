@@ -5,7 +5,7 @@
 void main(int argc, char** argv)
 {
 	int i;
-	char* arrVowels[];//how big to make array? mallocs
+	//char* arrVowels[];//how big to make array? mallocs
 	for(i = 1; i < argc; i++)//iterate through each string via command line
 	{
 		//argv[i];
