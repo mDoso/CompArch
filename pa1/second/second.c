@@ -15,11 +15,9 @@ int main(int argc, char** argv)
 {
 	FILE* f = fopen(argv[1],"r");
 	Node* head = NULL;
-	char action;
+	char action, lines;
 	char line[256];
-	char lines;
-	int c = 1;
-	int val;
+	int c = 1, val;
 	char* name = "node";
 	if(f != NULL)
 	{
@@ -30,7 +28,11 @@ int main(int argc, char** argv)
 				name == "node" + (char) c;
 				Node* (char*) name = NULL;
 			}
-
+	}
+	else
+	{
+		printf("Could not open file.\n");
+        return 1;
 	}
 	fclose(f);
 	f = fopen(argv[1], "r");
@@ -40,7 +42,7 @@ int main(int argc, char** argv)
 		fscanf(f,"%c %d", &action, &val);
 		while(fgets(line, sizeof(line),f))
 		{
-			if(action=='i')
+			if(action =='i')
 			{
 				if(c == 0)
 				{
@@ -58,6 +60,11 @@ int main(int argc, char** argv)
 			}
 			fscanf(f,"%c %d", &action, &val);		
 		}
+	}
+	else
+	{
+		printf("Could not open file.\n");
+        return 1;
 	}
 	
 

@@ -56,8 +56,7 @@ int main(int argc, char** argv)
 {
 	
 	int x;//Standard variable declarations, ints arrays, filename etc.
-    int numEven;
-    int numNums;
+    int numEven, numNums, i;
     int arrFinal[20];
     int arrEven[20];
     int arrOdd[20];
@@ -88,8 +87,6 @@ int main(int argc, char** argv)
     fclose(f); //close file
     selectSortMin(arrEven, evenC);//sort evens in ascending order
     sortMax(arrOdd,oddC);//sort odds in descending order
-
-    int i;
     int place = 0;
     for(i = 0; i < evenC; i++) //two loops to merge the sorted arrays for even and odd
     {
