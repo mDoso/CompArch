@@ -4,18 +4,23 @@
 int main(int argc, char** argv)
 {
 	FILE* f = fopen(argv[1],"r");
-	int row1, column1, row2, column2, i;
-	char* line = "hi";
+	int i, rowMat1, columnMat1, rowMat2, columnMat2;
+	char line[1000];
+	int** matrix1;
 	if(f != NULL)
 	{
-		fscanf(f, "%d %d", &row1, &column1);
-		printf("%d %d\n", row1, column1);
-		for(i = 1; i < row1; i++)
+		fscanf(f, "%d %d", &rowMat1, &columnMat1);
+		//printf("%d %d\n", rowMat1, columnMat1);
+		matrix1 = (int **)malloc(rowMat1 * sizeof(int *));
+		for(i = 0; i < rowMat1; i++)
 		{
-			fscanf(f,"%[^\n]", line);
+			fgets(line, sizeof(line), f);
+			fscanf(f, "%d %d\n", &rowMat2, &columnMat2);
+			printf("%d %d\n", rowMat2, columnMat2);
+			matrix1[i] = (int *)malloc(columnMat1 * sizeof(int));
 		}
-		fscanf(f, "%d %d", &row2, &column2);
-		printf("%d %d\n", row2, column2);
+		fscanf(f, "%d %d\n", &rowMat2, &columnMat2);
+		printf("%d %d\n", rowMat2, columnMat2);
 	}
 	else
 	{
