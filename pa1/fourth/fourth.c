@@ -46,10 +46,10 @@ int main(int argc, char** argv)
 			for(i = 0; i < numRow1; i++)
 			{
 				matrixProduct[i] = (int *)malloc(numColumn2 * sizeof(int));
-				for(j = 0; j < numColumn1; j++)
+				for(j = 0; j < numColumn2; j++)
 				{
 					matrixProduct[i][j]=0;
-					for(k = 0; k < numColumn2; k++)
+					for(k = 0; k < numColumn1; k++)
 						matrixProduct[i][j] = matrixProduct[i][j] + matrix1[i][k] * matrix2[k][j];
 				}
 			}

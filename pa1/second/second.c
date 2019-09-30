@@ -14,52 +14,51 @@ typedef struct node
 int main(int argc, char** argv)
 {
 	FILE* f = fopen(argv[1],"r");
-	Node* head = NULL;
-	char action, lines;
+	//Node* head = NULL;
+	char action, lines, type;
 	char line[256];
 	int c = 1, val;
-	char* name = "node";
+	Node* nodelist
+
 	if(f != NULL)
 	{
 		for(lines = getc(f); c != EOF; c = getc(f))
+		{
 			if (lines == '\n')
 			{	
 				c++;
-				name == "node" + (char) c;
-				Node* (char*) name = NULL;
 			}
+		}
 	}
 	else
 	{
 		printf("Could not open file.\n");
+		fclose(f);
         return 1;
 	}
 	fclose(f);
-	f = fopen(argv[1], "r");
+	/*f = fopen(argv[1], "r");
 	c = 0;
-	if (f != NULL)
+	fscanf(f,"%c %d", &action, &val);
+	while(fgets(line, sizeof(line),f))
 	{
-		fscanf(f,"%c %d", &action, &val);
-		while(fgets(line, sizeof(line),f))
+		if(action =='i')
 		{
-			if(action =='i')
+			if(c == 0)
 			{
-				if(c == 0)
-				{
-					head->data = val;
-					head->next = NULL;
-				}
-				printf("%c\t", action);
-				printf("%d\n", val);
-				c++;
+				head->data = val;
+				head->next = NULL;
 			}
-			else if(action == 'd')
-			{			
-				printf("%c\t", action);
-				printf("%d\n", val);
-			}
-			fscanf(f,"%c %d", &action, &val);		
+			printf("%c\t", action);
+			printf("%d\n", val);
+			c++;
 		}
+		else if(action == 'd')
+		{			
+			printf("%c\t", action);
+			printf("%d\n", val);
+		}
+		fscanf(f,"%c %d", &action, &val);		
 	}
 	else
 	{
@@ -71,5 +70,4 @@ int main(int argc, char** argv)
 /*Read line, check first character, if i, create node add 
 data of second character,else if d, find Node containing 
 character follwing d, delete Node*/
-	fclose(f);
 }
