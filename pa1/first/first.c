@@ -65,7 +65,7 @@ int main(int argc, char** argv)
     FILE* f = fopen(argv[1],"r");//opens file in read mode 
 	if (f == NULL) { //if unable to open file, display error
         printf("Could not open file.\n");
-        return 1;
+        return 0;
     }    
     fscanf(f,"%d",&numNums);//takes first line of file, to determine how many numbers will be worked with
     //printf("%d\n", numNums);

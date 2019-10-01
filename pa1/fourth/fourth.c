@@ -69,6 +69,6 @@ int main(int argc, char** argv)
 	else
 	{
 		printf("Could not open file.\n");
-        return 1;
+        return 0;
 	}
 }
